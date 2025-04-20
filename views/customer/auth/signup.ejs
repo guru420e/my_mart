@@ -1,61 +1,76 @@
 <!-- hard coded Signup page for now but will be dynamic in the future -->
 <!-- just have to provide value from controller to the view -->
-<%- include("../includes/head",{pageTitle : "Signup" }) %>
-    </head>
+<!DOCTYPE html>
+<html lang="en">
+  <!-- inlcudes the head in the file -->
+  <!-- this contians the metatags and title of the page -->
+  <%- include("../includes/head",{pageTitle : "Signup" }) %>
+  <!-- head is closed here so that specific type of styles that depends on the page may include here -->
+  <link rel="stylesheet" href="/styles/forms.css">
+</head>
 
-    <body>
-        <%- include("../includes/header") %>
-            <main>
-                <form action="" method="">
-                    <p>
-                        <label for="email">E-Mail</label>
-                        <input type="email" name="email" id="email" required>
-                    </p>
+  <body>
+    <%- include("../includes/header") %>
+    <main>
+      <form action="" method="">
+        <p>
+          <label for="email">E-Mail</label>
+          <input type="email" name="email" id="email" required />
+        </p>
 
-                    <p>
-                        <label for="confirmEmail">Confirm EMail</label>
-                        <input type="email" name="email" id="confirmEmail" required>
-                    </p>
+        <p>
+          <label for="confirmEmail">Confirm EMail</label>
+          <input type="email" name="email" id="confirmEmail" required />
+        </p>
 
-                    <p>
-                        <label for="password">Password</label>
-                        <input type="password" name="password" minlength="6" id="password" required>
-                    </p>
+        <p>
+          <label for="password">Password</label>
+          <input
+            type="password"
+            name="password"
+            minlength="6"
+            id="password"
+            required
+          />
+        </p>
 
-                    <hr>
+        <hr />
 
-                    <p>
-                        <label for="fullName">Full Name</label>
-                        <input type="text" name="fullName" id="fullName" required>
-                    </p>
+        <p>
+          <label for="fullName">Full Name</label>
+          <input type="text" name="fullName" id="fullName" required />
+        </p>
 
-                    <p>
-                        <label for="street">Street </label>
-                        <input type="text" name="street" id="street" required>
-                    </p>
+        <p>
+          <label for="street">Street </label>
+          <input type="text" name="street" id="street" required />
+        </p>
 
+        <p>
+          <label for="postalCode">Postal Code </label>
+          <input
+            type="text"
+            name="postalCode"
+            id="postalCode"
+            minlength="6"
+            maxlength="6"
+            required
+          />
+        </p>
 
-                    <p>
-                        <label for="postalCode">Postal Code </label>
-                        <input type="text" name="postalCode" id="postalCode" minlength="6" maxlength="6" required>
-                    </p>
-                    
-                    <p>
-                        <label for="city">City</label>
-                        <input type="text" name="city" id="city" required>
-                    </p>
-                    
-                    <button class="btn">
-                        Create Account
-                    </button>
-                    <p id="switch-form">
-                        <a href="/login">Already have an account? Login</a>
-                    </p>
+        <p>
+          <label for="city">City</label>
+          <input type="text" name="city" id="city" required />
+        </p>
 
-                </form>
-            </main>
-    
-      <!-- inlcude footer in the future   -->
-      <!-- move this body and html into that -->
-    </body>
+        <button class="btn">Create Account</button>
+        <p id="switch-form">
+          <a href="/login">Already have an account? Login</a>
+        </p>
+      </form>
+    </main>
+
+    <!-- inlcude footer in the future   -->
+    <!-- move this body and html into that -->
+  </body>
 </html>
