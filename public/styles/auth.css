@@ -1,0 +1,18 @@
+form{
+    background-color: var(--color-gray-600);
+    padding: var(--space-8);
+    border-radius: var(--border-radius-medium);
+    width: 80%;
+    max-width: 700px;
+}
+
+form a{
+    color: var(--color-primary-200);
+}
+
+
+form a:hover
+,form a:active{
+    color: var(--color-primary-400);
+}
+
