@@ -37,26 +37,29 @@ html {
   --border-radius-medium: 6px;
 
   --shadow-medium: 0 2px 8px rgba(0, 0, 0, 0.2);
-  --space-1:0.25rem;
-  --space-2:0.5rem;
-  --space-4:1rem;
-  --space-6:1.5rem;
-  --space-8:2rem;
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
 
-  --border-radius-small:4px;
-  --border-radius-medium:6px;
+  --border-radius-small: 4px;
+  --border-radius-medium: 6px;
 
-  --shadow-medium:0 2px 8px rgba(0, 0, 0, 0.2);
+  --shadow-medium: 0 2px 8px rgba(0, 0, 0, 0.2);
 
+  --font-sm: 1.2rem;
+  --font-md: 1.4rem;
+  --font-lg: 1.6rem;
+  --font-xl: 1.8rem;
 }
 
-body{
+body {
   background-color: var(--color-gray-500);
   color: var(--color-gray-100);
-
 }
 
-main{
+main {
   /* might need to change here */
   display: flex;
   flex-direction: column;
@@ -65,18 +68,19 @@ main{
   padding: var(--space-6) var(--space-4);
 }
 
-ul,ol{
+ul,
+ol {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-a{
+a {
   text-decoration: none;
   color: var(--color-primary-400);
 }
 
-.btn{
+.btn {
   display: block;
   padding: var(--space-2) var(--space-4);
   border: none;
@@ -84,12 +88,12 @@ a{
   background-color: var(--color-primary-500);
   color: var(--color-primary-500-contrast);
 
-  cursor:pointer;
-  font:inherit;
+  cursor: pointer;
+  font: inherit;
 }
 
 .btn:hover,
-.btn:active{
+.btn:active {
   background-color: var(--color-primary-700);
   border-color: var(--color-primary-700);
 }
