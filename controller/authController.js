@@ -18,4 +18,8 @@ async function postSignupConroller(req, res) {
   res.redirect("/login");
 }
 
-export { signupConroller, postSignupConroller };
+function getLoginController(req, res) {
+  res.render("customer/auth/login");
+}
+
+export { signupConroller, postSignupConroller ,getLoginController};
