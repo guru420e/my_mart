@@ -9,6 +9,9 @@ import csurfTokenMiddleware from "./middlewares/csrfToken.js";
 import handleError from "./middlewares/errorsHandler.js";
 import session from "express-session";
 import sessionConfig from "./config/sessionConfig.js";
+import baseRoute from "./routes/baseRoute.js";
+import productRoute from "./routes/productRoute.js";
+import { authMiddleware } from "./middlewares/authMiddleware.js";
 
 const app = express();
 
@@ -39,11 +42,12 @@ app.use(csurf());
 // the token is available in the views as csrfToken
 app.use(csurfTokenMiddleware);
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
+// Set the locals for templates
+app.use(authMiddleware);
 
+app.use(baseRoute);
 app.use(authRoute);
+app.use(productRoute);
 
 app.use(handleError);
 

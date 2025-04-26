@@ -1,39 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include("../includes/head",{pageTitle : "Signup" }) %>
+<%- include("../includes/head",{pageTitle : "Signup" }) %>
   <link rel="stylesheet" href="/styles/auth.css">
   <link rel="stylesheet" href="/styles/forms.css">
-</head>
+  </head>
 
   <body>
     <%- include("../includes/header") %>
-    <main>
-      <form action="/signup" method="POST">
-        <input type="hidden" name="_csrf" value = "<%= locals.csrfToken %>" />
-        <p>
-          <label for="email">E-Mail</label>
-          <input type="email" name="email" id="email" required />
-        </p>
+      <main>
+        <form action="/login" method="POST">
+          <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>" />
+          <p>
+            <label for="email">E-Mail</label>
+            <input type="email" name="email" id="email" required />
+          </p>
 
-        <p>
-          <label for="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            minlength="6"
-            id="password"
-            required
-          />
-        </p>
+          <p>
+            <label for="password">Password</label>
+            <input type="password" name="password" minlength="6" id="password" required />
+          </p>
 
-        <button class="btn">Login</button>
-        <p id="switch-form">
-          <a href="/signup">Create a new Account ?</a>
-        </p>
-      </form>
-    </main>
+          <button class="btn">Login</button>
+          <p id="switch-form">
+            <a href="/signup">Create a new Account ?</a>
+          </p>
+        </form>
+      </main>
 
-    <!-- inlcude footer in the future   -->
-    <!-- move this body and html into that -->
+      <!-- inlcude footer in the future   -->
+      <!-- move this body and html into that -->
   </body>
+
 </html>
