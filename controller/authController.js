@@ -3,7 +3,28 @@ import { createUserSession, destroyUserSession } from "../utils/postAuth.js";
 
 // render the signup page
 function signupConroller(req, res) {
-  res.render("customer/auth/signup");
+  const hasError = req.session.hasError;
+  let userData = req.session.userData;
+  console.log(hasError);
+  console.log(userData);
+
+  if (!hasError) {
+    userData = {
+      error: "",
+      email: "",
+      confirmEmail: "",
+      password: "",
+      fullName: "",
+      street: "",
+      postalCode: "",
+      city: "",
+    };
+  }
+
+  req.session.hasError = false;
+  req.session.userData = {};
+
+  res.render("customer/auth/signup", userData);
 }
 
 // handles the post request for signup
