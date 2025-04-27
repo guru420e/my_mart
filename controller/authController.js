@@ -8,7 +8,8 @@ function signupConroller(req, res) {
 
 // handles the post request for signup
 async function postSignupConroller(req, res, next) {
-  // need to add the validation for the email and password
+  // Validation is done in the middleware
+  // check the authRoutes
   const {
     email,
     confirmEmail,
