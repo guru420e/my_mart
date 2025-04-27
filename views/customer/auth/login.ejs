@@ -9,21 +9,28 @@
     <%- include("../includes/header") %>
       <main>
         <form action="/login" method="POST">
-          <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>" />
-          <p>
-            <label for="email">E-Mail</label>
-            <input type="email" name="email" id="email" required />
-          </p>
+          <% if (error) { %>
+            <div>
+              <p>
+                <%= error %>
+              </p>
+            </div>
+            <% } %>
+              <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>" />
+              <p>
+                <label for="email">E-Mail</label>
+                <input type="email" name="email" id="email" value="<%= email %>" required />
+              </p>
 
-          <p>
-            <label for="password">Password</label>
-            <input type="password" name="password" minlength="6" id="password" required />
-          </p>
+              <p>
+                <label for="password">Password</label>
+                <input type="password" name="password" minlength="6" id="password" required />
+              </p>
 
-          <button class="btn">Login</button>
-          <p id="switch-form">
-            <a href="/signup">Create a new Account ?</a>
-          </p>
+              <button class="btn">Login</button>
+              <p id="switch-form">
+                <a href="/signup">Create a new Account ?</a>
+              </p>
         </form>
       </main>
 
