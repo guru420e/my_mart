@@ -36,7 +36,7 @@ app.use(session(sessionConfig(session)));
 
 // this package automatically works with the express-session to
 // mangage the token
-app.use(csurf());
+// app.use(csurf());
 
 // calling the csurfToken middleware to add the token to locals
 // the token is available in the views as csrfToken

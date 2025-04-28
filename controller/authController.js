@@ -1,9 +1,27 @@
 import User from "../modals/userModal.js";
+import { clearErrorFromSession, getSessionData } from "../utils/helper.js";
 import { createUserSession, destroyUserSession } from "../utils/postAuth.js";
 
 // render the signup page
 function signupConroller(req, res) {
-  res.render("customer/auth/signup");
+  let { hasError, userData } = getSessionData(req);
+
+  if (!hasError) {
+    userData = {
+      error: "",
+      email: "",
+      confirmEmail: "",
+      password: "",
+      fullName: "",
+      street: "",
+      postalCode: "",
+      city: "",
+    };
+  }
+
+  clearErrorFromSession(req);
+
+  res.render("customer/auth/signup", userData);
 }
 
 // handles the post request for signup
@@ -32,28 +50,21 @@ async function postSignupConroller(req, res, next) {
 }
 
 function getLoginController(req, res) {
-  res.render("customer/auth/login");
+  let { hasError, userData } = getSessionData(req);
+  if (!hasError) {
+    userData = {
+      error: "",
+      email: "",
+      password: "",
+    };
+  }
+  clearErrorFromSession(req);
+  res.render("customer/auth/login", userData);
 }
 
 async function postLoginContoller(req, res, next) {
-  const user = new User(req.body.email, req.body.password);
-  let existingUser;
-  try {
-    existingUser = await user.getUserWithEmail();
-  } catch {
-    return next(err);
-  }
-  if (!existingUser) {
-    // Refine this data in the future
-    console.log("User not found");
-
-    return res.redirect("/login");
-  }
-  const match = await user.comparePassword(existingUser.password);
-  if (!match) {
-    console.log("Password not matched");
-    return res.redirect("/login");
-  }
+  // data is already validated in the middleware
+  const existingUser = req.existingUser;
 
   createUserSession(req, existingUser, () => {
     res.redirect("/");

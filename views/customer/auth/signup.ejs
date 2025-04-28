@@ -2,77 +2,74 @@
 <!-- just have to provide value from controller to the view -->
 <!DOCTYPE html>
 <html lang="en">
-  <!-- inlcudes the head in the file -->
-  <!-- this contians the metatags and title of the page -->
-  <%- include("../includes/head",{pageTitle : "Signup" }) %>
+<!-- inlcudes the head in the file -->
+<!-- this contians the metatags and title of the page -->
+<%- include("../includes/head",{pageTitle : "Signup" }) %>
   <!-- head is closed here so that specific type of styles that depends on the page may include here -->
   <link rel="stylesheet" href="/styles/auth.css">
   <link rel="stylesheet" href="/styles/forms.css">
-</head>
+  </head>
 
   <body>
     <%- include("../includes/header") %>
-    <main>
-      <form action="/signup" method="POST">
-      <input type="hidden" name="_csrf" value = "<%= locals.csrfToken %>" />
-        <p>
-          <label for="email">E-Mail</label>
-          <input type="email" name="email" id="email" required />
-        </p>
+      <main>
+        <form action="/signup" method="POST">
+          <!-- take care of error here -->
+          <% if (error) { %>
+            <div class="alert">
+              <p>
+                <%= error %>
+              </p>
+            </div>
+            <% } %>
+              <input type="hidden" name="_csrf" value="<%= locals.csrfToken %>" />
+              <p>
+                <label for="email">E-Mail</label>
+                <input type="email" name="email" id="email" value="<%= email  %>" required />
+              </p>
 
-        <p>
-          <label for="confirmEmail">Confirm EMail</label>
-          <input type="email" name="confirmEmail" id="confirmEmail" required />
-        </p>
+              <p>
+                <label for="confirmEmail">Confirm EMail</label>
+                <input type="email" name="confirmEmail" id="confirmEmail" value="<%= confirmEmail %>" required />
+              </p>
 
-        <p>
-          <label for="password">Password</label>
-          <input
-            type="password"
-            name="password"
-            minlength="6"
-            id="password"
-            required
-          />
-        </p>
+              <p>
+                <label for="password">Password</label>
+                <input type="password" name="password" minlength="6" id="password" value="<%=password %>" required />
+              </p>
 
-        <hr />
+              <hr />
 
-        <p>
-          <label for="fullName">Full Name</label>
-          <input type="text" name="fullName" id="fullName" required />
-        </p>
+              <p>
+                <label for="fullName">Full Name</label>
+                <input type="text" name="fullName" id="fullName" value="<%= fullName %>" required />
+              </p>
 
-        <p>
-          <label for="street">Street </label>
-          <input type="text" name="street" id="street" required />
-        </p>
+              <p>
+                <label for="street">Street </label>
+                <input type="text" name="street" id="street" value="<%= street %>" required />
+              </p>
 
-        <p>
-          <label for="postalCode">Postal Code </label>
-          <input
-            type="text"
-            name="postalCode"
-            id="postalCode"
-            minlength="6"
-            maxlength="6"
-            required
-          />
-        </p>
+              <p>
+                <label for="postalCode">Postal Code </label>
+                <input type="text" name="postalCode" id="postalCode" minlength="6" maxlength="6"
+                  value="<%= postalCode %>" required />
+              </p>
 
-        <p>
-          <label for="city">City</label>
-          <input type="text" name="city" id="city" required />
-        </p>
+              <p>
+                <label for="city">City</label>
+                <input type="text" name="city" id="city" value="<%= city %>" required />
+              </p>
 
-        <button class="btn">Create Account</button>
-        <p id="switch-form">
-          <a href="/login">Already have an account? Login</a>
-        </p>
-      </form>
-    </main>
+              <button class="btn">Create Account</button>
+              <p id="switch-form">
+                <a href="/login">Already have an account? Login</a>
+              </p>
+        </form>
+      </main>
 
-    <!-- inlcude footer in the future   -->
-    <!-- move this body and html into that -->
+      <!-- inlcude footer in the future   -->
+      <!-- move this body and html into that -->
   </body>
+
 </html>

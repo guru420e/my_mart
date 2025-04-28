@@ -97,3 +97,15 @@ a {
   background-color: var(--color-primary-700);
   border-color: var(--color-primary-700);
 }
+
+
+.alert p {
+  display: flex;
+  background-color: var(--color-error-100);
+  justify-content: center;
+  height: 50px;
+  font-style: bold;
+  font-weight: bold;
+  color: var(--color-error-500);
+  border-radius: var(--border-radius-small);
+}
