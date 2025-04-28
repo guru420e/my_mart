@@ -3,7 +3,7 @@ export function createUserSession(req, user, action) {
     email: user.email,
   };
   req.session.isLoggedIn = true;
-
+  req.session.isAdmin = user.isAdmin;
   req.session.save(action);
 }
 
