@@ -1,0 +1,12 @@
+form p {
+    align-items: flex-start;
+}
+
+form textarea {
+    width: 100%;
+    border-radius: var(--border-radius-small);
+}
+
+.btn {
+    width: 100%;
+}
