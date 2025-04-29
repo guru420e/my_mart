@@ -3,7 +3,7 @@
         <li><a href="/products">Products</a></li>
         <li><a href="/cart">Cart</a></li>
         <% } %>
-            <% if (locals.isLoggedIn) { %>
+            <% if (locals.isLoggedIn && !locals.isAdmin) { %>
                 <li><a href="/orders">Orders</a></li>
                 <% } %>
                     <% if (locals.isAdmin) { %>
