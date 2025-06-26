@@ -59,6 +59,7 @@ body {
   color: var(--color-gray-100);
 }
 
+
 main {
   /* might need to change here */
   display: flex;

@@ -12,6 +12,7 @@ import sessionConfig from "./config/sessionConfig.js";
 import baseRoute from "./routes/baseRoute.js";
 import productRoute from "./routes/productRoute.js";
 import { authMiddleware } from "./middlewares/authMiddleware.js";
+import adminRoute from "./routes/adminRoute.js";
 
 const app = express();
 
@@ -48,6 +49,7 @@ app.use(authMiddleware);
 app.use(baseRoute);
 app.use(authRoute);
 app.use(productRoute);
+app.use("/admin", adminRoute);
 
 app.use(handleError);
 
