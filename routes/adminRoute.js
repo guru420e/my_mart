@@ -3,6 +3,8 @@ import {
   getAdminNewProductController,
   getAdminProductsController,
   postAdminNewProductController,
+  getUpdateAdminProductController,
+  postUpdateAdminProductController,
 } from "../controller/adminController.js";
 const router = express.Router();
 
@@ -17,6 +19,13 @@ router.post(
   "/products/new",
   configMulterMiddleware,
   postAdminNewProductController
+);
+
+router.get("/product/:productId", getUpdateAdminProductController);
+router.post(
+  "/products/:productId",
+  configMulterMiddleware,
+  postUpdateAdminProductController
 );
 
 export default router;

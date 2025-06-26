@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include("../includes/head",{pageTitle : "Add new Product" }) %>
+<%- include("../includes/head",{pageTitle : "Update Product" }) %>
     <link rel="stylesheet" href="/styles/forms.css">
     <link rel="stylesheet" href="/styles/adminForm.css">
 
@@ -10,12 +10,10 @@
         <%- include("../includes/header") %>
             <main>
                 <h1>
-                    Add a new Product
+                    Update Product
                 </h1>
-                <!-- form expect to have submitUrl and Product object -->
-                <!-- new Product does not have an anything, so it is empty -->
-                <%- include("../includes/productForm",{submitUrl : "/admin/products/new" ,product:{},imageRequired:true
-                    }) %>
+                <%- include("../includes/productForm",{submitUrl : "/admin/products/" + productId
+                    ,product,imageRequired: false}) %>
             </main>
             <!-- inlcude footer in the future   -->
             <!-- move this body and html into that -->
