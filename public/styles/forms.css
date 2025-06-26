@@ -38,9 +38,6 @@ button {
 /* to turn the layout column on small screen */
 
 @media screen and (max-width: 600px) {
-  form {
-    width: 100%;
-  }
 
   p label {
     width: 100%;

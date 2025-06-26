@@ -50,3 +50,6 @@ debug.log
 
 # Optional test reports
 test-output/
+
+#all the Product Image files
+productsData/images/*
