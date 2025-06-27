@@ -5,6 +5,7 @@ import {
   postAdminNewProductController,
   getUpdateAdminProductController,
   postUpdateAdminProductController,
+  deleteAdminProductController,
 } from "../controller/adminController.js";
 const router = express.Router();
 
@@ -27,5 +28,7 @@ router.post(
   configMulterMiddleware,
   postUpdateAdminProductController
 );
+
+router.delete("/product/:productId", deleteAdminProductController);
 
 export default router;

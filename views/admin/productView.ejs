@@ -2,12 +2,13 @@
 <html lang="en">
 <%- include("../includes/head",{pageTitle : "Signup" }) %>
     <link rel="stylesheet" href="/styles/product.css">
+    <script src="/scripts/productDelete.js" defer></script>
     </head>
 
     <body>
         <%- include("../includes/header") %>
             <main>
-                <section>
+                <section class="add-product-section">
                     <h1>
                         Product Adminstration
                     </h1>
@@ -23,7 +24,7 @@
 
                         <% for (const product of products) { %>
 
-                            <li>
+                            <li data-productId="<%= product.id %>" data-csur="<% locals.csrfToken %>">
                                 <%- include("../includes/productItem", {product}) %>
                             </li>
                             <% }%>

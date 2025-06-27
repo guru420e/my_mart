@@ -55,3 +55,22 @@ export async function postUpdateAdminProductController(req, res, next) {
 
   res.redirect("/admin/products");
 }
+
+export async function deleteAdminProductController(req, res, next) {
+  const productId = req.params.productId.trim();
+  let product;
+  try {
+    product = await Product.findById(productId);
+    if (!product) {
+      const error = new Error("Product not found");
+      error.code = 404;
+      throw error;
+    }
+    await product.delete();
+  } catch (error) {
+    next(error);
+    return;
+  }
+  // This is ajax request, so we send a JSON response
+  res.status(200).json({ message: "Product deleted successfully", product });
+}

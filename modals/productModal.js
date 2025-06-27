@@ -79,6 +79,17 @@ class Product {
     }
   }
 
+  async delete() {
+    try {
+      const db = getDb();
+      return db
+        .collection("products")
+        .deleteOne({ _id: new ObjectId(this.id) });
+    } catch (err) {
+      throw new Error("Error deleting product: " + err.message);
+    }
+  }
+
   getDetails() {
     return `Product Name: ${this.name}, Price: $${this.price}, Description: ${this.description}`;
   }
